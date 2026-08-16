@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PADEL SMASH — Baku's Padel Community & Tournaments</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandLime: '#CCFF00',
+                        brandDark: '#0A0B0E',
+                        brandCard: '#12141C',
+                        brandCyan: '#00F0FF',
+                    },
+                    fontFamily: {
+                        heading: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0A0B0E;
+            color: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .glow-lime {
+            box-shadow: 0 0 25px rgba(204, 255, 0, 0.25);
+        }
+        .text-stroke {
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brandLime selection:text-black">
+
+    <!-- NAVBAR -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-40 transition-all duration-300 bg-brandDark/80 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2">
+                <span class="text-2xl sm:text-3xl font-black font-heading tracking-tighter text-white">
+                    PADEL<span class="text-brandLime">SMASH</span>
+                </span>
+                <span class="text-[10px] font-mono bg-brandLime/10 text-brandLime px-2 py-0.5 rounded border border-brandLime/20 uppercase">Baku</span>
+            </a>
+
+            <!-- Desktop Links -->
+            <div class="hidden md:flex items-center gap-8 font-semibold text-sm text-zinc-300">
+                <a href="#next-tournament" class="hover:text-brandLime transition-colors">NEXT EVENT</a>
+                <a href="#events" class="hover:text-brandLime transition-colors">TOURNAMENTS</a>
+                <a href="#live" class="hover:text-brandLime transition-colors flex items-center gap-1.5 text-red-500 font-bold"><span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span> LIVE</a>
+                <a href="#community" class="hover:text-brandLime transition-colors">COMMUNITY</a>
+                <a href="#gallery" class="hover:text-brandLime transition-colors">GALLERY</a>
+                <a href="#faq" class="hover:text-brandLime transition-colors">FAQ</a>
+            </div>
+
+            <!-- CTA & Mobile Toggle -->
+            <div class="flex items-center gap-4">
+                <button onclick="openModal('QUEEN PADEL SMASH')" class="hidden sm:inline-flex bg-brandLime text-black font-black px-5 py-2.5 rounded-xl hover:bg-lime-300 transition-all transform active:scale-95 text-sm uppercase tracking-wide glow-lime">
+                    JOIN TOURNAMENT
+                </button>
+                <button id="menuBtn" class="md:hidden text-white text-2xl p-2">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden bg-brandCard border-b border-white/10 px-6 py-6 space-y-4">
+            <a href="#next-tournament" class="block text-lg font-bold text-white hover:text-brandLime">NEXT EVENT</a>
+            <a href="#events" class="block text-lg font-bold text-white hover:text-brandLime">TOURNAMENTS</a>
+            <a href="#live" class="block text-lg font-bold text-red-500">🔴 LIVE MATCH</a>
+            <a href="#community" class="block text-lg font-bold text-white hover:text-brandLime">COMMUNITY</a>
+            <a href="#gallery" class="block text-lg font-bold text-white hover:text-brandLime">GALLERY</a>
+            <a href="#faq" class="block text-lg font-bold text-white hover:text-brandLime">FAQ</a>
+            <button onclick="openModal('QUEEN PADEL SMASH')" class="w-full bg-brandLime text-black font-black py-3 rounded-xl uppercase tracking-wide">
+                JOIN TOURNAMENT
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen pt-32 pb-20 flex items-center justify-center overflow-hidden border-b border-white/10">
+        <!-- Background Grid Pattern -->
+        <div class="absolute inset-0 bg-[radial-gradient(#1a1d2d_1px,transparent_1px)] [background-size:24px_24px] opacity-40"></div>
+        <div class="absolute -top-40 -right-40 w-96 h-96 bg-brandLime/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full text-xs font-mono uppercase tracking-widest text-zinc-300 mb-8">
+                <i class="fa-solid fa-location-dot text-brandLime"></i> Baku, Azerbaijan 🇦🇿
+            </div>
+
+            <h1 class="text-5xl sm:text-7xl lg:text-9xl font-black font-heading tracking-tighter uppercase leading-none mb-6">
+                PADEL <span class="text-transparent bg-clip-text bg-gradient-to-r from-brandLime via-white to-brandCyan">SMASH</span>
+            </h1>
+
+            <p class="max-w-2xl mx-auto text-lg sm:text-xl text-zinc-400 font-medium mb-10 leading-relaxed">
+                Главное падель-сообщество Баку. Регулярные турниры, плей-офф, рейтинги и неповторимая атмосфера спорта.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#next-tournament" class="w-full sm:w-auto bg-brandLime text-black font-black px-8 py-4 rounded-xl hover:bg-lime-300 transition-all transform hover:-translate-y-0.5 text-base uppercase tracking-wider glow-lime">
+                    NEXT TOURNAMENT <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+                <a href="#events" class="w-full sm:w-auto bg-white/5 hover:bg-white/10 text-white font-bold px-8 py-4 rounded-xl border border-white/10 transition-all text-base uppercase tracking-wider">
+                    EXPLORE EVENTS
+                </a>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <div class="bg-brandCard/60 border border-white/5 p-4 rounded-2xl">
+                    <div class="text-3xl font-black font-heading text-brandLime">500+</div>
+                    <div class="text-xs text-zinc-400 uppercase font-mono mt-1">PLAYERS</div>
+                </div>
+                <div class="bg-brandCard/60 border border-white/5 p-4 rounded-2xl">
+                    <div class="text-3xl font-black font-heading text-white">35+</div>
+                    <div class="text-xs text-zinc-400 uppercase font-mono mt-1">TOURNAMENTS</div>
+                </div>
+                <div class="bg-brandCard/60 border border-white/5 p-4 rounded-2xl">
+                    <div class="text-3xl font-black font-heading text-brandCyan">1,200+</div>
+                    <div class="text-xs text-zinc-400 uppercase font-mono mt-1">MATCHES</div>
+                </div>
+                <div class="bg-brandCard/60 border border-white/5 p-4 rounded-2xl">
+                    <div class="text-3xl font-black font-heading text-white">BAKU</div>
+                    <div class="text-xs text-zinc-400 uppercase font-mono mt-1">AZERBAIJAN</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEXT TOURNAMENT COUNTDOWN -->
+    <section id="next-tournament" class="py-20 bg-brandDark relative border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-brandCard to-black border-2 border-brandLime/40 rounded-3xl p-8 sm:p-12 relative overflow-hidden shadow-2xl">
+                <div class="absolute -top-12 -right-12 bg-brandLime/10 w-64 h-64 rounded-full blur-2xl"></div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-flex items-center gap-2 bg-brandLime text-black font-black text-xs px-3 py-1 rounded-full uppercase tracking-widest">
+                            🔥 NEXT FEATURED EVENT
+                        </div>
+                        <h2 class="text-4xl sm:text-6xl font-black font-heading tracking-tight">QUEEN PADEL SMASH</h2>
+                        
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm font-mono text-zinc-300">
+                            <div><span class="text-zinc-500 block">DATE:</span> 28 AUGUST 2026</div>
+                            <div><span class="text-zinc-500 block">LOCATION:</span> Baku Padel Club</div>
+                            <div><span class="text-zinc-500 block">CATEGORY:</span> Women & Mixed</div>
+                        </div>
+
+                        <!-- Registration Progress -->
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-xs font-mono">
+                                <span class="text-zinc-400">REGISTERED TEAMS</span>
+                                <span class="text-brandLime font-bold">22 / 32 SPOTS</span>
+                            </div>
+                            <div class="w-full h-3 bg-zinc-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-brandLime w-[70%]"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Countdown Box -->
+                    <div class="lg:col-span-5 bg-black/60 border border-white/10 p-6 rounded-2xl text-center space-y-6">
+                        <div class="text-xs font-mono text-zinc-400 uppercase tracking-widest">REGISTRATION CLOSES IN</div>
+                        
+                        <div class="grid grid-cols-4 gap-2 font-heading">
+                            <div class="bg-brandCard p-3 rounded-xl border border-white/5">
+                                <span id="days" class="text-2xl sm:text-4xl font-black text-brandLime">12</span>
+                                <span class="block text-[10px] text-zinc-500 uppercase font-mono mt-1">DAYS</span>
+                            </div>
+                            <div class="bg-brandCard p-3 rounded-xl border border-white/5">
+                                <span id="hours" class="text-2xl sm:text-4xl font-black text-white">08</span>
+                                <span class="block text-[10px] text-zinc-500 uppercase font-mono mt-1">HRS</span>
+                            </div>
+                            <div class="bg-brandCard p-3 rounded-xl border border-white/5">
+                                <span id="minutes" class="text-2xl sm:text-4xl font-black text-white">42</span>
+                                <span class="block text-[10px] text-zinc-500 uppercase font-mono mt-1">MIN</span>
+                            </div>
+                            <div class="bg-brandCard p-3 rounded-xl border border-white/5">
+                                <span id="seconds" class="text-2xl sm:text-4xl font-black text-brandCyan">18</span>
+                                <span class="block text-[10px] text-zinc-500 uppercase font-mono mt-1">SEC</span>
+                            </div>
+                        </div>
+
+                        <button onclick="openModal('QUEEN PADEL SMASH')" class="w-full bg-brandLime text-black font-black py-4 rounded-xl hover:bg-lime-300 transition-all uppercase tracking-wider text-base glow-lime">
+                            REGISTER NOW →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE MATCH SCOREBOARD -->
+    <section id="live" class="py-16 bg-brandDark border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-2xl font-black font-heading flex items-center gap-3">
+                    <span class="w-3 h-3 rounded-full bg-red-600 animate-ping"></span> 🔴 LIVE ON COURT
+                </h2>
+                <span class="text-xs font-mono text-zinc-400">COURT 01 — BAKU PADEL CENTER</span>
+            </div>
+
+            <div class="bg-brandCard border border-red-500/30 rounded-2xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                    <!-- Team A -->
+                    <div class="lg:col-span-4 flex items-center justify-between lg:justify-start gap-4">
+                        <div class="font-heading">
+                            <div class="text-xl font-bold text-white">Rashad M. / Leyla K.</div>
+                            <div class="text-xs font-mono text-brandLime">SEEDED #1</div>
+                        </div>
+                    </div>
+
+                    <!-- Score Board -->
+                    <div class="lg:col-span-4 bg-black/80 rounded-xl p-4 border border-white/10 flex justify-around items-center font-mono">
+                        <div class="text-center">
+                            <span class="text-[10px] text-zinc-500 block">SET 1</span>
+                            <span class="text-2xl font-black text-white">6</span>
+                        </div>
+                        <div class="text-center">
+                            <span class="text-[10px] text-zinc-500 block">SET 2</span>
+                            <span class="text-2xl font-black text-brandLime">4</span>
+                        </div>
+                        <div class="text-center">
+                            <span class="text-[10px] text-zinc-500 block">SET 3</span>
+                            <span class="text-2xl font-black text-white">3</span>
+                        </div>
+                        <div class="h-8 w-px bg-white/10"></div>
+                        <div class="text-center">
+                            <span class="text-[10px] text-red-500 block font-bold animate-pulse">GAME</span>
+                            <span class="text-2xl font-black text-brandLime">40</span>
+                        </div>
+                    </div>
+
+                    <!-- Team B -->
+                    <div class="lg:col-span-4 flex items-center justify-between lg:justify-end gap-4 text-right">
+                        <div class="font-heading">
+                            <div class="text-xl font-bold text-white">Kamran H. / Yusif V.</div>
+                            <div class="text-xs font-mono text-zinc-500">SEEDED #3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UPCOMING EVENTS & ARCHIVE -->
+    <section id="events" class="py-20 bg-brandDark border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="text-brandLime font-mono text-xs uppercase tracking-widest">OFFICIAL SCHEDULE</span>
+                    <h2 class="text-4xl font-black font-heading mt-1">TOURNAMENTS</h2>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="flex flex-wrap gap-2 font-mono text-xs">
+                    <button onclick="filterEvents('all')" class="filter-btn active bg-brandLime text-black font-bold px-4 py-2 rounded-lg">ALL</button>
+                    <button onclick="filterEvents('upcoming')" class="filter-btn bg-white/5 text-zinc-300 hover:bg-white/10 px-4 py-2 rounded-lg">UPCOMING</button>
+                    <button onclick="filterEvents('finished')" class="filter-btn bg-white/5 text-zinc-300 hover:bg-white/10 px-4 py-2 rounded-lg">ARCHIVE</button>
+                </div>
+            </div>
+
+            <!-- Tournament Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 (Upcoming) -->
+                <div class="event-card upcoming bg-brandCard border border-white/10 rounded-2xl overflow-hidden hover:border-brandLime/50 transition-all group">
+                    <div class="h-48 bg-zinc-800 relative flex items-center justify-center p-6 bg-cover bg-center" style="background-image: linear-gradient(to top, rgba(18,20,28,1), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1554068865-24cecd4e34b8?auto=format&fit=crop&w=800&q=80');">
+                        <span class="absolute top-4 left-4 bg-brandLime text-black font-black text-[10px] px-2.5 py-1 rounded uppercase font-mono">28 AUG 2026</span>
+                        <h3 class="text-2xl font-black font-heading text-white group-hover:text-brandLime transition-colors">QUEEN PADEL SMASH</h3>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="text-xs font-mono text-zinc-400 space-y-1">
+                            <div>📍 Baku Padel Club</div>
+                            <div>🎾 Women & Mixed Doubles</div>
+                            <div>👥 Available: 10 / 32 spots</div>
+                        </div>
+                        <button onclick="openModal('QUEEN PADEL SMASH')" class="w-full bg-white/10 hover:bg-brandLime hover:text-black text-white font-bold py-3 rounded-xl transition-all text-sm uppercase">
+                            REGISTER →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2 (Upcoming) -->
+                <div class="event-card upcoming bg-brandCard border border-white/10 rounded-2xl overflow-hidden hover:border-brandLime/50 transition-all group">
+                    <div class="h-48 bg-zinc-800 relative flex items-center justify-center p-6 bg-cover bg-center" style="background-image: linear-gradient(to top, rgba(18,20,28,1), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?auto=format&fit=crop&w=800&q=80');">
+                        <span class="absolute top-4 left-4 bg-brandCyan text-black font-black text-[10px] px-2.5 py-1 rounded uppercase font-mono">12 SEP 2026</span>
+                        <h3 class="text-2xl font-black font-heading text-white group-hover:text-brandLime transition-colors">BAKU OPEN CUP</h3>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="text-xs font-mono text-zinc-400 space-y-1">
+                            <div>📍 Caspian Arena</div>
+                            <div>🎾 Men Open Category</div>
+                            <div>👥 Available: 16 / 24 spots</div>
+                        </div>
+                        <button onclick="openModal('BAKU OPEN CUP')" class="w-full bg-white/10 hover:bg-brandLime hover:text-black text-white font-bold py-3 rounded-xl transition-all text-sm uppercase">
+                            REGISTER →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 3 (Finished Archive) -->
+                <div class="event-card finished bg-brandCard border border-white/10 rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-zinc-800 relative flex items-center justify-center p-6 bg-cover bg-center opacity-75" style="background-image: linear-gradient(to top, rgba(18,20,28,1), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1511067007398-7e4b90cfa4bc?auto=format&fit=crop&w=800&q=80');">
+                        <span class="absolute top-4 left-4 bg-zinc-700 text-white font-bold text-[10px] px-2.5 py-1 rounded uppercase font-mono">FINISHED</span>
+                        <h3 class="text-2xl font-black font-heading text-white">AMERICAN TOURNAMENT</h3>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="text-xs font-mono text-zinc-400 space-y-1 border-b border-white/5 pb-3">
+                            <div class="text-brandLime font-bold mb-1">🥇 CHAMPIONS:</div>
+                            <div>Emin M. & Rasul K.</div>
+                        </div>
+                        <button class="w-full bg-white/5 text-zinc-400 font-bold py-3 rounded-xl text-sm uppercase cursor-not-allowed">
+                            VIEW RESULTS
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TOURNAMENT BRACKET -->
+    <section class="py-20 bg-brandDark border-b border-white/10 overflow-x-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-w-[700px]">
+            <div class="text-center mb-12">
+                <span class="text-brandLime font-mono text-xs uppercase tracking-widest">PLAYOFF STAGE</span>
+                <h2 class="text-3xl font-black font-heading">TOURNAMENTS BRACKET</h2>
+            </div>
+
+            <div class="flex justify-between items-center gap-8">
+                <!-- Quarter -->
+                <div class="flex-1 space-y-6">
+                    <div class="text-xs font-mono text-zinc-500 uppercase text-center">QUARTER FINALS</div>
+                    <div class="bg-brandCard p-3 rounded-xl border border-white/10 text-xs font-mono">
+                        <div class="flex justify-between font-bold text-white border-b border-white/5 pb-1 mb-1">
+                            <span>Emin / Rasul</span> <span class="text-brandLime">6 6</span>
+                        </div>
+                        <div class="flex justify-between text-zinc-500">
+                            <span>Fuad / Anar</span> <span>2 3</span>
+                        </div>
+                    </div>
+                    <div class="bg-brandCard p-3 rounded-xl border border-white/10 text-xs font-mono">
+                        <div class="flex justify-between font-bold text-white border-b border-white/5 pb-1 mb-1">
+                            <span>Tural / Murad</span> <span class="text-brandLime">7 6</span>
+                        </div>
+                        <div class="flex justify-between text-zinc-500">
+                            <span>Samir / David</span> <span>5 4</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-8 h-px bg-zinc-700"></div>
+
+                <!-- Semi -->
+                <div class="flex-1 space-y-12">
+                    <div class="text-xs font-mono text-zinc-500 uppercase text-center">SEMI FINALS</div>
+                    <div class="bg-brandCard p-3 rounded-xl border border-brandLime/30 text-xs font-mono">
+                        <div class="flex justify-between font-bold text-white border-b border-white/5 pb-1 mb-1">
+                            <span>Emin / Rasul</span> <span class="text-brandLime">6 4 10</span>
+                        </div>
+                        <div class="flex justify-between text-zinc-500">
+                            <span>Tural / Murad</span> <span>3 6 8</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-8 h-px bg-brandLime"></div>
+
+                <!-- Final -->
+                <div class="flex-1">
+                    <div class="text-xs font-mono text-brandLime uppercase text-center mb-2">FINAL CHAMPIONS 🏆</div>
+                    <div class="bg-gradient-to-b from-brandCard to-black p-4 rounded-xl border-2 border-brandLime text-xs font-mono shadow-xl">
+                        <div class="text-[10px] text-brandLime uppercase mb-1">WINNERS</div>
+                        <div class="text-sm font-bold text-white">Emin M. & Rasul K.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHOTO GALLERY -->
+    <section id="gallery" class="py-20 bg-brandDark border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-brandLime font-mono text-xs uppercase tracking-widest">COMMUNITY MOMENTS</span>
+                <h2 class="text-4xl font-black font-heading mt-1">SMASH GALLERY</h2>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="h-64 bg-zinc-800 rounded-2xl overflow-hidden relative group">
+                    <img src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="h-64 bg-zinc-800 rounded-2xl overflow-hidden relative group">
+                    <img src="https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="h-64 bg-zinc-800 rounded-2xl overflow-hidden relative group">
+                    <img src="https://images.unsplash.com/photo-1511067007398-7e4b90cfa4bc?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="h-64 bg-zinc-800 rounded-2xl overflow-hidden relative group">
+                    <img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="py-20 bg-brandDark border-b border-white/10">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-black font-heading text-center mb-10">FREQUENTLY ASKED QUESTIONS</h2>
+            
+            <div class="space-y-4">
+                <div class="bg-brandCard border border-white/10 rounded-xl p-5">
+                    <h3 class="font-bold text-lg text-white">Как принять участие в турнире?</h3>
+                    <p class="text-zinc-400 text-sm mt-2">Выберите интересующий турнир, нажмите «REGISTER NOW» и заполните форму. Наш менеджер свяжется с вами через WhatsApp для подтверждения слота.</p>
+                </div>
+                <div class="bg-brandCard border border-white/10 rounded-xl p-5">
+                    <h3 class="font-bold text-lg text-white">Что делать, если у меня нет напарника?</h3>
+                    <p class="text-zinc-400 text-sm mt-2">Вы можете зарегистрироваться со статусом «Need Partner». Мы подберем вам игрока соответствующего уровня из нашего комьюнити.</p>
+                </div>
+                <div class="bg-brandCard border border-white/10 rounded-xl p-5">
+                    <h3 class="font-bold text-lg text-white">Где проходят турниры Padel Smash?</h3>
+                    <p class="text-zinc-400 text-sm mt-2">Основные локации — Baku Padel Club, Caspian Padel Arena и корт Sea Breeze.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <a href="https://wa.me/994500000000" target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl transition-transform transform hover:scale-110 flex items-center justify-center">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- REGISTRATION MODAL -->
+    <div id="regModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-brandCard border border-white/10 rounded-2xl max-w-md w-full p-6 relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-zinc-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <h3 class="text-2xl font-black font-heading mb-1" id="modalTournamentTitle">REGISTER FOR TOURNAMENT</h3>
+            <p class="text-xs text-zinc-400 font-mono mb-6">Заполните данные для заявки через WhatsApp</p>
+
+            <form onsubmit="sendWhatsApp(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-mono text-zinc-400 mb-1">ИМЯ И ФАМИЛИЯ</label>
+                    <input type="text" id="regName" required class="w-full bg-zinc-800 border border-zinc-700 rounded-lg p-3 text-sm text-white focus:outline-none focus:border-brandLime" placeholder="Мурад Алиев">
+                </div>
+                <div>
+                    <label class="block text-xs font-mono text-zinc-400 mb-1">НОМЕР ТЕЛЕФОНА / WHATSAPP</label>
+                    <input type="tel" id="regPhone" required class="w-full bg-zinc-800 border border-zinc-700 rounded-lg p-3 text-sm text-white focus:outline-none focus:border-brandLime" placeholder="+994 50 000 00 00">
+                </div>
+                <div>
+                    <label class="block text-xs font-mono text-zinc-400 mb-1">ИМЯ НАПАРНИКА (ЕСЛИ ЕСТЬ)</label>
+                    <input type="text" id="regPartner" class="w-full bg-zinc-800 border border-zinc-700 rounded-lg p-3 text-sm text-white focus:outline-none focus:border-brandLime" placeholder="Ищу напарника / Имя">
+                </div>
+                <button type="submit" class="w-full bg-brandLime text-black font-black py-4 rounded-xl uppercase tracking-wider text-sm glow-lime mt-4">
+                    ПОДТВЕРДИТЬ В WHATSAPP 🔥
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="py-12 bg-black border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+                <span class="text-2xl font-black font-heading text-white">PADEL<span class="text-brandLime">SMASH</span></span>
+                <p class="text-xs font-mono text-zinc-500 mt-1">Baku, Azerbaijan 🇦🇿 • @padelsmash.az</p>
+            </div>
+            <div class="flex gap-6 text-zinc-400 text-xl">
+                <a href="https://instagram.com/padelsmash.az" target="_blank" class="hover:text-brandLime"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/994500000000" target="_blank" class="hover:text-brandLime"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+            <div class="text-xs font-mono text-zinc-600">
+                © 2026 PADEL SMASH. ALL RIGHTS RESERVED.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Countdown Timer Logic
+        const targetDate = new Date("2026-08-28T18:00:00").getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const diff = targetDate - now;
+            if (diff > 0) {
+                document.getElementById('days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+                document.getElementById('hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById('minutes').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById('seconds').innerText = Math.floor((diff % (1000 * 60)) / 1000);
+            }
+        }, 1000);
+
+        // Filter Logic
+        function filterEvents(category) {
+            const cards = document.querySelectorAll('.event-card');
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = card.classList.contains(category) ? 'block' : 'none';
+                }
+            });
+        }
+
+        // Modal Logic
+        let activeTournament = 'QUEEN PADEL SMASH';
+        function openModal(title) {
+            activeTournament = title;
+            document.getElementById('modalTournamentTitle').innerText = title;
+            document.getElementById('regModal').classList.remove('hidden');
+        }
+        function closeModal() {
+            document.getElementById('regModal').classList.add('hidden');
+        }
+
+        // WhatsApp Direct Registration
+        function sendWhatsApp(e) {
+            e.preventDefault();
+            const name = document.getElementById('regName').value;
+            const phone = document.getElementById('regPhone').value;
+            const partner = document.getElementById('regPartner').value || 'Ищу напарника';
+            
+            const message = `Привет, Padel Smash! 🎾%0AЯ хочу зарегистрироваться на турнир: *${activeTournament}*%0A%0A*Имя:* ${name}%0A*Телефон:* ${phone}%0A*Напарник:* ${partner}`;
+            window.open(`https://wa.me/994500000000?text=${message}`, '_blank');
+            closeModal();
+        }
+
+        // Mobile Menu Toggle
+        document.getElementById('menuBtn').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
